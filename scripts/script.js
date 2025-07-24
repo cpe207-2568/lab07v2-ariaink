@@ -39,21 +39,27 @@ confirmPasswordInput.onkeyup = () => {
   confirmPasswordInput.classList.remove("is-invalid");
 };
 
-const inputs = [
-  firstNameInput,
-  lastNameInput,
-  emailInput,
-  passwordInput,
-  confirmPasswordInput,
-];
-
 clearBtn.onclick = () => {
-  inputs.forEach(input => {
-    input.value = "";
-    input.classList.remove("is-invalid", "is-valid");
-  });
-};
+  firstNameInput.value = "";
+  firstNameInput.classList.remove("is-invalid");
+  firstNameInput.classList.remove("is-valid");
 
+  lastNameInput.value = "";
+  lastNameInput.classList.remove("is-invalid");
+  lastNameInput.classList.remove("is-valid");
+
+  emailInput.value = "";
+  emailInput.classList.remove("is-invalid");
+  emailInput.classList.remove("is-valid");
+
+  passwordInput.value = "";
+  passwordInput.classList.remove("is-invalid");
+  passwordInput.classList.remove("is-valid");
+
+  confirmPasswordInput.value = "";
+  confirmPasswordInput.classList.remove("is-invalid");
+  confirmPasswordInput.classList.remove("is-valid");
+};
 submitBtn.onclick = () => {
   isFirstNameOk = false;
   isLastNameOk = false;
@@ -61,7 +67,7 @@ submitBtn.onclick = () => {
   isPasswordOk = false;
   isConfirmPasswordOk = false;
 
-  
+ 
   if (firstNameInput.value === "") {
     firstNameInput.classList.add("is-invalid");
   } else {
@@ -69,7 +75,6 @@ submitBtn.onclick = () => {
     isFirstNameOk = true;
   }
 
-  
   if (lastNameInput.value === "") {
     lastNameInput.classList.add("is-invalid");
   } else {
@@ -77,7 +82,7 @@ submitBtn.onclick = () => {
     isLastNameOk = true;
   }
 
-  
+ 
   if (validateEmail(emailInput.value) === false) {
     emailInput.classList.add("is-invalid");
   } else {
@@ -91,6 +96,8 @@ submitBtn.onclick = () => {
   } else {
     passwordInput.classList.add("is-invalid");
   }
+
+
   if (
     confirmPasswordInput.value.length >= 6 &&
     confirmPasswordInput.value === passwordInput.value
